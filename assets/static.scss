@@ -1,0 +1,18 @@
+html {
+  scroll-behavior: smooth;
+}
+section > div > h2 {
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  gap: 20px;
+
+  &::after,
+  &::before {
+    flex: 1;
+    content: '';
+    display: block;
+    background: #f3cd00;
+    height: 2px;
+  }
+}
