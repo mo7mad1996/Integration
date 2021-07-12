@@ -44,7 +44,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: 'http://localhost:3000',
+    // baseUrl: 'http://localhost:3000',
+    baseUrl: ' https://my-json-server.typicode.com/mo7mad1996/integration',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
