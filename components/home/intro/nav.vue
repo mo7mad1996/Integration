@@ -4,18 +4,19 @@
       <div class="v-row">
         <nuxt-link to="/" class="logo">
           <img src="/logo.png" height="50px" alt="Integration for Courses" />
+
           <div>
             <span>Integration</span>
             <span>for Courses</span>
           </div>
         </nuxt-link>
+
         <nav>
           <nuxt-link to="/">Home</nuxt-link>
           <nuxt-link to="#courses">Courses</nuxt-link>
           <nuxt-link to="#lecturers">Lecturers</nuxt-link>
         </nav>
       </div>
-      <v-divider />
     </v-container>
   </header>
 </template>
@@ -50,6 +51,7 @@ header.header {
       padding: 0 10px;
 
       span {
+        font-weight: bold;
         display: block;
         text-transform: uppercase;
 
@@ -79,6 +81,7 @@ header.header {
 
         &.nuxt-link-exact-active {
           color: #2c1e6d;
+          font-weight: bold;
         }
       }
     }

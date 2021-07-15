@@ -31,8 +31,8 @@
                 <div class="contact"></div>
                 <p>
                   {{
-                    lecturer.describe.length > 73
-                      ? lecturer.describe.slice(0, 70) + '...'
+                    lecturer.describe.length > 78
+                      ? lecturer.describe.slice(0, 75) + '...'
                       : lecturer.describe
                   }}
                 </p>
@@ -76,6 +76,13 @@ section {
       border-radius: 5px;
       overflow: hidden;
       margin: auto;
+      transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0px 0px 0px rgb(199, 193, 193);
+        transform: translate(4px, 2px);
+        border: 2px solid #eee;
+      }
 
       .img-container {
         overflow: hidden;
@@ -147,6 +154,7 @@ section {
         p {
           font-size: 14px;
           color: #444;
+          margin: 0;
         }
       }
     }

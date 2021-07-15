@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
+let x = 0
+
 export default {
   server: {
     port: 3030,
@@ -44,8 +46,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseUrl: 'http://localhost:3000',
-    baseUrl: ' https://my-json-server.typicode.com/mo7mad1996/integration',
+    baseUrl: 'http://localhost:3000',
+    // baseUrl: 'https://my-json-server.typicode.com/mo7mad1996/integration',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

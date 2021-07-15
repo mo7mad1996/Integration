@@ -26,6 +26,15 @@
       "descriptaion": "desed ;lk ",
       "booked": [],
       "id": 3
+    },
+    {
+      "img": null,
+      "name": "photoShop",
+      "lecturer": "person Name",
+      "price": "1200",
+      "descount": "10",
+      "descriptaion": "this course is the first step in graphic design carrere and if you like it teach it with person name with simple price ",
+      "id": 4
     }
   ],
   "lecturers": [
@@ -98,18 +107,18 @@
   "ideas": [],
   "tickets": [
     {
+      "id": 3,
       "course_id": 3,
-      "name": "name",
-      "email": "email",
-      "phone": "phone",
-      "id": 1
+      "name": "asd",
+      "email": "asd",
+      "phone": "asd"
     },
     {
-      "id": 2,
-      "course_id": 3,
-      "name": "namw",
-      "email": ";lk",
-      "phone": ";k"
+      "id": 4,
+      "course_id": 2,
+      "name": "name",
+      "email": "email",
+      "phone": "phone"
     }
   ]
 }

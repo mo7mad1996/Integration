@@ -5,6 +5,7 @@
     <nuxt-link to="/dashboard">Dashboard</nuxt-link>
     <Courses />
     <Lecturers />
+    <FooterComponent />
   </div>
 </template>
 
@@ -13,9 +14,10 @@
 import Intro from '~/components/home/intro/index'
 import Lecturers from '~/components/home/lecturers'
 import Courses from '~/components/home/courses/index'
+import FooterComponent from '~/components/home/footer/index'
 
 export default {
-  components: { Intro, Lecturers, Courses },
+  components: { Intro, Lecturers, Courses, FooterComponent },
   head: () => ({
     title: 'Home',
   }),

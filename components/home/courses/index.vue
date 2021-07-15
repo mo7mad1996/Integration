@@ -33,7 +33,7 @@
 
             <v-dialog max-width="600">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on"> Get ticket </v-btn>
+                <v-btn text v-bind="attrs" v-on="on">Get ticket</v-btn>
               </template>
               <template v-slot:default="dialog">
                 <v-card>
@@ -41,9 +41,9 @@
                     <v-toolbar color="primary" dark>
                       <div>
                         Get the ticket for
-                        <q
-                          ><b>{{ course.name }}</b></q
-                        >
+                        <q>
+                          <b>{{ course.name }}</b>
+                        </q>
                         course
                       </div>
                     </v-toolbar>
@@ -57,7 +57,6 @@
                     </v-card-text>
                     <v-card-actions class="justify-end">
                       <v-btn
-                        text
                         type="submit"
                         :disabled="!(info.name || info.email || info.phone)"
                         :loading="loading"
@@ -89,7 +88,6 @@ export default {
   // asyncDate() {
   //   let courses = this.$axios.$get('courses')[0]
 
-
   //   return { courses }
   // },
   data: () => ({
@@ -107,10 +105,7 @@ export default {
     book(id, dialog) {
       this.loading = true
       this.$axios
-        .$post(
-          'tickets',
-          Object.assign({ id: nullx, course_id: id }, this.info)
-        )
+        .$post('tickets', Object.assign({ id: null, course_id: id }, this.info))
         .then(() => (dialog.value = false))
         .finally(() => (this.loading = false))
     },
@@ -124,18 +119,21 @@ export default {
 <style scoped lang="scss">
 .course {
   display: flex;
-  margin-bottom: 20px;
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
 
   .course_id {
     width: 15vw;
     min-width: 20px;
+    font-size: 2em;
+    color: #ff4769;
   }
 
   .course_details {
     display: flex;
     flex: 1;
-    gap: 10px;
-    align-items: flex-end;
+    justify-content: space-between;
 
     .basics {
       height: 100%;
@@ -147,20 +145,28 @@ export default {
       }
 
       h2 {
-        font-size: 1.2em;
+        font-size: 2em;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
       }
       h3 {
-        font-size: 0.9em;
+        font-size: 1.3em;
       }
 
       p {
         font-size: 0.8em;
         opacity: 0.8;
+        margin: 0;
       }
     }
 
     .price {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       font-weight: bold;
+      direction: rtl;
 
       .del {
         position: relative;
@@ -177,6 +183,38 @@ export default {
           transform: rotate(-10deg);
         }
       }
+    }
+  }
+
+  &:after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 15vw;
+    height: 100%;
+    display: block;
+    background: #f3cd00;
+    pointer-events: none;
+    transform: skewX(-30deg);
+    transform-origin: top;
+    left: 0;
+    top: -5px;
+    z-index: -1;
+    transition: 0.3s;
+  }
+
+  &::before {
+    top: 0;
+    background: #ff4769;
+    left: 5px;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      transform: skewX(-30deg) translatex(-20px);
     }
   }
 }
