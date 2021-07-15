@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-let x = 0
+let dev = process.env.NODE_ENV !== 'production'
 
 export default {
   server: {
@@ -46,8 +46,9 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: 'http://localhost:3000',
-    // baseUrl: 'https://my-json-server.typicode.com/mo7mad1996/integration',
+    baseUrl: dev
+      ? 'https://my-json-server.typicode.com/mo7mad1996/integration'
+      : 'http://localhost:3000',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

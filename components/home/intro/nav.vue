@@ -46,6 +46,7 @@ header.header {
     padding: 0 10px;
     display: flex;
     align-items: center;
+    align-items: flex-end;
 
     > div {
       padding: 0 10px;
