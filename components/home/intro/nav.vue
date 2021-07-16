@@ -15,6 +15,7 @@
           <nuxt-link to="/">Home</nuxt-link>
           <nuxt-link to="#courses">Courses</nuxt-link>
           <nuxt-link to="#lecturers">Lecturers</nuxt-link>
+          <nuxt-link to="#suggest">Suggest an edit</nuxt-link>
         </nav>
       </div>
     </v-container>
@@ -76,6 +77,11 @@ header.header {
     nav {
       display: flex;
       gap: 2vw;
+
+      @media (max-width: 569px) {
+        flex-direction: column;
+        position: relative;
+      }
 
       a {
         color: #07ccb0;

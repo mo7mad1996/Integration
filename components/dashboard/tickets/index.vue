@@ -1,5 +1,5 @@
 <template>
-  <v-list>
+  <v-list v-if="tickets.length">
     <v-list-item
       class="my-3 ticket"
       v-for="(ticket, n) in tickets"
@@ -71,6 +71,8 @@
       </v-card>
     </v-list-item>
   </v-list>
+
+  <div class="noData" v-else><h2>No Tickets...</h2></div>
 </template>
 
 <script>

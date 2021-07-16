@@ -34,12 +34,24 @@
               </v-list-item-icon>
               <v-list-item-title>integration_courses</v-list-item-title>
             </v-list-item>
+
+            <v-list-item link href="mailto:info@integration-eng.co">
+              <v-list-item-icon>
+                <v-icon>mdi-mailbox-up-outline</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>info@integration-eng.co</v-list-item-content>
+            </v-list-item>
           </v-list>
         </v-col>
         <v-col>
           <div>Address</div>
           <v-list dark color="#0000">
-            <div>6 october</div>
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon>mdi-map-marker</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content> 6th of October City </v-list-item-content>
+            </v-list-item>
             <v-list-item link href="tel:201151248022">
               <v-list-item-icon>
                 <v-icon>mdi-cellphone</v-icon>
@@ -53,6 +65,7 @@
               </v-list-item-icon>
               <v-list-item-content>(+2) 015 5217 1038</v-list-item-content>
             </v-list-item>
+
             <!-- <v-list-group> </v-list-group> -->
           </v-list>
         </v-col>

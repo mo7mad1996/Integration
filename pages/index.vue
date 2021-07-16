@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <v-app>
     <Intro />
     <Courses />
     <Lecturers />
+    <SuggestForm />
     <FooterComponent />
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -12,10 +13,11 @@
 import Intro from '~/components/home/intro/index'
 import Lecturers from '~/components/home/lecturers'
 import Courses from '~/components/home/courses/index'
+import SuggestForm from '~/components/home/suggestForm/index'
 import FooterComponent from '~/components/home/footer/index'
 
 export default {
-  components: { Intro, Lecturers, Courses, FooterComponent },
+  components: { Intro, Lecturers, Courses, SuggestForm, FooterComponent },
   head: () => ({
     title: 'Home',
   }),

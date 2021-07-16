@@ -2,7 +2,7 @@
   <section id="courses">
     <v-container>
       <h2>courses</h2>
-      <v-app v-if="courses.length">
+      <div v-if="courses.length">
         <div class="course" v-for="(course, n) in courses" :key="n">
           <!-- course_id -->
           <div class="course_id">
@@ -78,7 +78,7 @@
             <v-img :src="course.img || '/logo.png'" width="100px" />
           </div>
         </div>
-      </v-app>
+      </div>
 
       <div v-else class="noData">
         <v-btn disabled text loading v-if="loading" class="loading"></v-btn>

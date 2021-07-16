@@ -25,16 +25,17 @@
           Login
         </v-btn>
       </v-card-actions>
-
-      <v-alert
-        :value="error.active"
-        type="error"
-        dark
-        transition="scale-transition"
-      >
-        {{ error.text }}
-      </v-alert>
     </v-form>
+
+    <v-snackbar color="error" v-model="error.active" timeout="3000">
+      {{ error.text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn icon text v-bind="attrs" @click="error.active = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-card>
 </template>
 

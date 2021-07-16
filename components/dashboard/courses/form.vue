@@ -28,11 +28,11 @@
         <v-text-field label="Course Name" v-model="course.name"></v-text-field>
       </v-col>
       <v-col>
-        <v-select
+        <v-overflow-btn
           :items="lecturers.map((el) => el.name)"
           label="Lecturer"
           v-model="course.lecturer"
-        ></v-select>
+        ></v-overflow-btn>
       </v-col>
     </v-row>
     <v-row align="center">
