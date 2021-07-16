@@ -14,23 +14,32 @@
         <v-col>
           <div>Contact Us</div>
           <v-list color="#0000" dark>
-            <v-list-item>
+            <v-list-item
+              link
+              target="_blank"
+              href="https://web.facebook.com/Engineeringserviceofficial"
+            >
               <v-list-item-icon>
                 <v-icon>mdi-facebook</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>facebook Page </v-list-item-title>
+              <v-list-item-title>Integration Academy</v-list-item-title>
             </v-list-item>
-            <v-list-item>
+            <v-list-item
+              link
+              target="_blank"
+              href="https://www.instagram.com/integration_courses/"
+            >
               <v-list-item-icon>
-                <v-icon>mdi-facebook</v-icon>
+                <v-icon>mdi-instagram</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>facebook Page </v-list-item-title>
+              <v-list-item-title>integration_courses</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-col>
         <v-col>
           <div>Address</div>
           <v-list dark color="#0000">
+            <div>6 october</div>
             <v-list-item link href="tel:201151248022">
               <v-list-item-icon>
                 <v-icon>mdi-cellphone</v-icon>
@@ -44,6 +53,7 @@
               </v-list-item-icon>
               <v-list-item-content>(+2) 015 5217 1038</v-list-item-content>
             </v-list-item>
+            <!-- <v-list-group> </v-list-group> -->
           </v-list>
         </v-col>
       </v-row>
