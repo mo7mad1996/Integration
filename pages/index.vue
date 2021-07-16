@@ -1,8 +1,6 @@
 <template>
   <div>
     <Intro />
-    <h1 class="text-center">Home</h1>
-    <nuxt-link to="/dashboard">Dashboard</nuxt-link>
     <Courses />
     <Lecturers />
     <FooterComponent />

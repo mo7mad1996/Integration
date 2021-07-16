@@ -11,8 +11,8 @@
             <v-card-title>person details</v-card-title>
             <v-card-text>
               <v-list-item-title>name: {{ ticket.name }}</v-list-item-title>
-              <v-list-item-title> phone: {{ ticket.phone }} </v-list-item-title>
-              <v-list-item-title> Email: {{ ticket.email }} </v-list-item-title>
+              <v-list-item-title>phone: {{ ticket.phone }} </v-list-item-title>
+              <v-list-item-title>Email: {{ ticket.email }} </v-list-item-title>
             </v-card-text>
           </v-col>
           <v-col>
@@ -65,7 +65,7 @@
             :loading="ticket.loading"
             :disabled="ticket.loading"
           >
-            <v-icon>mdi-exit</v-icon>
+            <v-icon>mdi-trash-can-outline</v-icon>
           </v-btn>
         </div>
       </v-card>

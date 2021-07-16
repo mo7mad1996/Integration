@@ -2,45 +2,48 @@
   <section id="lecturers">
     <v-container>
       <h2>lecturers</h2>
-      <v-app class="lecturers">
-        <v-row justify="center">
-          <v-col
-            cols="6"
-            md="3"
-            v-for="lecturer in lecturers"
-            :key="lecturer.id"
-          >
-            <div class="card">
-              <div class="img-container">
-                <img :src="lecturer.img || '/lecturers/avatar.svg'" />
-              </div>
-
-              <div class="info">
-                <div class="links">
-                  <v-row>
-                    <div v-for="(m, n) in lecturer.contact" :key="n">
-                      <v-btn small icon link :href="m" target="_blank" v-if="m">
-                        <v-icon link :to="m">mdi-{{ n }}</v-icon>
-                      </v-btn>
-                    </div>
-                  </v-row>
-                </div>
-
-                <h3>{{ lecturer.name }}</h3>
-                <small>{{ lecturer.job }}</small>
-                <div class="contact"></div>
-                <p>
-                  {{
-                    lecturer.describe.length > 78
-                      ? lecturer.describe.slice(0, 75) + '...'
-                      : lecturer.describe
-                  }}
-                </p>
-              </div>
+      <v-row class="lecturers" v-if="lecturers.length">
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
+          v-for="lecturer in lecturers"
+          :key="lecturer.id"
+        >
+          <div class="card">
+            <div class="img-container">
+              <img :src="lecturer.img || '/lecturers/avatar.svg'" />
             </div>
-          </v-col>
-        </v-row>
-      </v-app>
+
+            <div class="info">
+              <div class="links">
+                <v-row>
+                  <div v-for="(m, n) in lecturer.contact" :key="n">
+                    <v-btn small icon link :href="m" target="_blank" v-if="m">
+                      <v-icon link :to="m">mdi-{{ n }}</v-icon>
+                    </v-btn>
+                  </div>
+                </v-row>
+              </div>
+
+              <h3>{{ lecturer.name }}</h3>
+              <small>{{ lecturer.job }}</small>
+              <div class="contact"></div>
+              <p>
+                {{
+                  lecturer.describe.length > 78
+                    ? lecturer.describe.slice(0, 75) + '...'
+                    : lecturer.describe
+                }}
+              </p>
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+      <div v-else class="noData">
+        <v-btn disabled text loading v-if="loading" class="loading"></v-btn>
+        <h2 v-else>No Lecturers added</h2>
+      </div>
     </v-container>
   </section>
 </template>
@@ -54,6 +57,12 @@ export default {
   beforeMount() {
     this.getLecturers()
   },
+  data: () => ({ loading: true }),
+  watch: {
+    lecturers() {
+      this.loading = false
+    },
+  },
   computed: mapGetters('lecturers', ['lecturers']),
   methods: mapActions('lecturers', ['getLecturers']),
 }
@@ -64,6 +73,7 @@ section {
   .lecturers {
     gap: 10px;
     margin: 10px 0;
+    justify-content: center;
 
     .card {
       box-shadow: 4px 2px 10px rgb(199, 193, 193);
@@ -87,7 +97,7 @@ section {
       .img-container {
         overflow: hidden;
         height: 200px;
-        left: -80px;
+        transform: translateX(-25%);
         width: 380px;
         position: relative;
         background: #989898;
@@ -106,7 +116,8 @@ section {
         }
 
         img {
-          width: 200px;
+          width: 50%;
+          width: 240px;
           height: 200px;
           margin: 0 100px;
           object-fit: cover;

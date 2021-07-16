@@ -16,3 +16,12 @@ section > div > h2 {
     height: 2px;
   }
 }
+
+.noData {
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #bebebe;
+}
