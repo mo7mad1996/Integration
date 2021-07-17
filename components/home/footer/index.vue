@@ -50,7 +50,9 @@
               <v-list-item-icon>
                 <v-icon>mdi-map-marker</v-icon>
               </v-list-item-icon>
-              <v-list-item-content> 6th of October City </v-list-item-content>
+              <v-list-item-content>
+                <div>6<sup>th</sup> of October City</div>
+              </v-list-item-content>
             </v-list-item>
             <v-list-item link href="tel:201151248022">
               <v-list-item-icon>
