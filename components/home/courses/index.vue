@@ -127,6 +127,25 @@ export default {
   beforeMount() {
     this.getCourses()
   },
+
+  head() {
+    return {
+      meta: [
+        {
+          content: 'the best courses for civil engineers',
+          name: 'description',
+        },
+        {
+          content: 'the best place to get your courses in Egypt',
+          name: 'description',
+        },
+        {
+          content: 'the best courses for engineers',
+          name: 'description',
+        },
+      ],
+    }
+  },
 }
 </script>
 
