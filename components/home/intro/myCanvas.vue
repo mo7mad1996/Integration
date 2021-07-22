@@ -16,7 +16,6 @@ export default {
       controls: null,
       camera: null,
       loader: null,
-      car: null,
     }
   },
 
@@ -55,10 +54,6 @@ export default {
       this.camera.position.z = 40
       this.camera.position.y = 20
       this.camera.position.x = 50
-
-      onscroll = () => {
-        this.camera.position.y -= 0.01
-      }
 
       this.controls = new OrbitControls(this.camera, this.renderer.domElement)
       this.controls.enableZoom = false
