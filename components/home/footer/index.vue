@@ -79,37 +79,6 @@
 <script>
 export default {
   name: 'FooterComponent',
-  head: () => ({
-    meta: [
-      {
-        hid: 'address',
-        name: 'description',
-        content: '6th Of October City',
-      },
-      {
-        hid: 'phones',
-        name: 'description',
-        content: '01552171038 01151248022',
-      },
-      {
-        hid: 'instagram',
-        name: 'description',
-        content: 'instagram: integration_courses',
-      },
-
-      {
-        hid: 'email',
-        name: 'description',
-        content: 'info@integration-eng.co',
-      },
-
-      {
-        hid: 'facebook',
-        name: 'description',
-        content: 'facebook: Integration Academy',
-      },
-    ],
-  }),
 }
 </script>
 

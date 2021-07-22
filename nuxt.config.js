@@ -18,16 +18,9 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: 'description',
-        name: 'description',
-        content: 'Integration Integration-eng Integration for courses',
-      },
-      { name: 'format-detection', content: 'telephone=no' },
-      {
-        hid: 'names',
         name: 'description',
         content:
-          'Integration Integration-eng Integration for courses Integration Academy',
+          'Integration Integration-eng Integration for courses Integration site Integration Academy Integration Integration-eng Integration for courses Integration Academy  6th Of October City integration 01552171038 01151248022 instagram: integration_courses info@integration-eng.co facebook: Integration Academy the best courses for civil engineers the best place to get your courses in Egypt the best courses for engineers',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

@@ -1,38 +1,38 @@
 <template>
-  <div class="land">
-    <v-container>
+  <v-container>
+    <div class="land">
       <div class="left_Group">
         <h1>Integration</h1>
         <h2>for courses</h2>
       </div>
       <div class="right_photo">
-        <v-img />
+        <client-only>
+          <MyCanvas />
+        </client-only>
       </div>
-    </v-container>
-  </div>
+    </div>
+  </v-container>
 </template>
 
 <script>
+import MyCanvas from '~/components/home/intro/myCanvas'
+
 export default {
   name: 'Land',
+  components: { MyCanvas },
 }
 </script>
 
 <style scoped lang="scss">
 .land {
-  display: flex;
-  align-items: center;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 
-  .left_group {
+  div {
     flex: 1;
-    z-index: 2;
-  }
-  .right_photo {
-    z-index: 1;
-    position: absolute;
-    inset: 0;
   }
 }
 </style>

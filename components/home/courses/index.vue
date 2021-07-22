@@ -2,6 +2,7 @@
   <section id="courses">
     <v-container>
       <h2>courses</h2>
+      <!-- <div v-if="courses.length"> -->
       <div v-if="courses.length">
         <div class="course" v-for="(course, n) in courses" :key="n">
           <!-- course_id -->
@@ -81,7 +82,13 @@
       </div>
 
       <div v-else class="noData">
-        <v-btn disabled text loading v-if="loading" class="loading"></v-btn>
+        <v-btn
+          disabled
+          text
+          loading
+          v-if="loadingCourses"
+          class="loading"
+        ></v-btn>
         <h2 v-else>No Courses added</h2>
       </div>
     </v-container>
@@ -90,16 +97,11 @@
 
 <script>
 // vuex
-import { mapGetters, mapActions } from 'vuex'
-
 export default {
-  // asyncDate() {
-  //   let courses = this.$axios.$get('courses')[0]
-
-  //   return { courses }
-  // },
+  props: ['courses'],
   data: () => ({
-    loading: true,
+    loading: false,
+    loadingCourses: true,
     info: {
       name: '',
       email: '',
@@ -109,13 +111,11 @@ export default {
 
   watch: {
     courses() {
-      this.loading = false
+      this.loadingCourses = false
     },
   },
   name: 'Courses',
-  computed: mapGetters('courses', ['courses']),
   methods: {
-    ...mapActions('courses', ['getCourses']),
     book(id, dialog) {
       this.loading = true
       this.$axios
@@ -123,28 +123,6 @@ export default {
         .then(() => (dialog.value = false))
         .finally(() => (this.loading = false))
     },
-  },
-  beforeMount() {
-    this.getCourses()
-  },
-
-  head() {
-    return {
-      meta: [
-        {
-          content: 'the best courses for civil engineers',
-          name: 'description',
-        },
-        {
-          content: 'the best place to get your courses in Egypt',
-          name: 'description',
-        },
-        {
-          content: 'the best courses for engineers',
-          name: 'description',
-        },
-      ],
-    }
   },
 }
 </script>
@@ -156,11 +134,17 @@ export default {
   padding: 10px;
   overflow: hidden;
 
+  &:nth-last-of-type(even) {
+    background: #ff476930;
+  }
+
   .course_id {
     width: 15vw;
     min-width: 20px;
     font-size: 2em;
     color: #ff4769;
+
+    z-index: 2;
   }
 
   .course_details {
@@ -232,7 +216,7 @@ export default {
     transform-origin: top;
     left: 0;
     top: -5px;
-    z-index: -1;
+    z-index: 1;
     transition: 0.3s;
   }
 

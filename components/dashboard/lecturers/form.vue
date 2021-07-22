@@ -102,10 +102,12 @@ export default {
       let files = e.target.files,
         file = files[0].name,
         fileReader = new FileReader()
+
+      fileReader.readAsDataURL(files[0])
+
       fileReader.addEventListener('load', () => {
         this.imageUrl = fileReader.result
       })
-      fileReader.readAsDataURL(files[0])
       this.person.img = files[0]
     },
     close() {

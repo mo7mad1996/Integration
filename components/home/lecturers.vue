@@ -40,6 +40,7 @@
           </div>
         </v-col>
       </v-row>
+
       <div v-else class="noData">
         <v-btn disabled text loading v-if="loading" class="loading"></v-btn>
         <h2 v-else>No Lecturers added</h2>
@@ -50,21 +51,16 @@
 
 <script>
 // vuex
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Lecturers',
-  beforeMount() {
-    this.getLecturers()
-  },
+  props: ['lecturers'],
   data: () => ({ loading: true }),
   watch: {
     lecturers() {
       this.loading = false
     },
   },
-  computed: mapGetters('lecturers', ['lecturers']),
-  methods: mapActions('lecturers', ['getLecturers']),
 }
 </script>
 
