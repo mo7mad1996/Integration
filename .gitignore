@@ -35,7 +35,6 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -95,5 +94,5 @@ sw.*
 # online database
 db.json
 
-!node_modules/three/examples/jsm/controls/OrbitControls.jsm
-!node_modules/three/examples/jsm/loaders/GLTFLoader.jsm
+node_modules/*
+!node_modules/three
