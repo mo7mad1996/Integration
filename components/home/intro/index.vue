@@ -1,8 +1,10 @@
 <template>
   <div class="intro">
-    <NavBar :top="top" />
-    <!-- inrto -->
+    <client-only>
+      <NavBar :top="top" />
+    </client-only>
 
+    <!-- inrto -->
     <Land />
   </div>
 </template>
@@ -26,6 +28,8 @@ export default {
 <style scoped>
 .intro {
   height: 100vh;
-  background-image: linear-gradient(31deg, #07ccb0, white);
+  background-image: url('https://wallpaperaccess.com/full/1220750.jpg');
+  background-color: #07ccb0;
+  background-blend-mode: multiply;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ hid }">
     <v-container>
       <div class="v-row">
         <nuxt-link to="/" class="logo">
@@ -26,6 +26,10 @@
 export default {
   name: 'NavBar',
   props: ['top'],
+  data: () => ({ hid: true }),
+  mounted() {
+    onscroll = () => (scrollY > 20 ? (this.hid = false) : (this.hid = true))
+  },
 }
 </script>
 
@@ -42,6 +46,7 @@ header.header {
   left: 0;
   z-index: 3;
   background: white;
+  transition: 0.4s;
 
   .logo {
     padding: 0 10px;
@@ -92,6 +97,10 @@ header.header {
         }
       }
     }
+  }
+
+  &.hid {
+    background: transparent;
   }
 }
 </style>

@@ -4,6 +4,10 @@
       <div class="left_Group">
         <h1>Integration</h1>
         <h2>for courses</h2>
+        <p>
+          <b>Integration</b> is the best way to get you courses with the best
+          lecturers in Egypt
+        </p>
       </div>
       <div class="right_photo">
         <client-only>
@@ -30,8 +34,13 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
+  color: white;
 
-  div {
+  .left_Group {
+    max-width: 50%;
+  }
+
+  .right_photo {
     flex: 1;
   }
 }
