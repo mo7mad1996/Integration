@@ -6,7 +6,7 @@
         <h2>for courses</h2>
         <p>
           <b>Integration</b> is the best way to get you courses with the best
-          lecturers in Egypt
+          lecturers in 6 <sup>th</sup> Of October City
         </p>
       </div>
       <div class="right_photo">
