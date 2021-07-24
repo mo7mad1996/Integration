@@ -91,3 +91,9 @@ sw.*
 
 # Local Netlify folder
 .netlify
+
+# online database
+db.json
+
+!node_modules/three/examples/jsm/controls/OrbitControls.jsm
+!node_modules/three/examples/jsm/loaders/GLTFLoader.jsm
