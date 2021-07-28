@@ -91,7 +91,7 @@ footer {
   margin-top: 20px;
   min-height: 180px;
   background-attachment: fixed;
-  background-image: url('/logo.png');
+  background-image: url('/Integration-logo.png');
   background-repeat: no-repeat;
   background-size: auto 70%;
   background-position: 0 150%;

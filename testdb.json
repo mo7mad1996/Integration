@@ -2,8 +2,8 @@
   "users": [
     {
       "id": 1,
-      "username": "ayman",
-      "password": "ayman"
+      "username": "admin",
+      "password": "admin"
     }
   ],
   "courses": [

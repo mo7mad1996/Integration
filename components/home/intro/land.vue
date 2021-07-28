@@ -29,7 +29,6 @@ export default {
 
 <style scoped lang="scss">
 .land {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,9 +38,23 @@ export default {
   .left_Group {
     max-width: 50%;
   }
-
   .right_photo {
     flex: 1;
+    height: 100vh;
+  }
+
+  @media (max-width: 820px) {
+    display: block;
+
+    .left_Group {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      max-width: 100%;
+    }
   }
 }
 </style>

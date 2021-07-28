@@ -2,16 +2,22 @@
   <header class="header" :class="{ hid }">
     <v-container>
       <div class="v-row">
-        <nuxt-link to="/" class="logo">
-          <img src="/logo.png" height="50px" alt="Integration for Courses" />
+        <nuxt-link to="/" class="Integration-logo">
+          <img
+            src="/Integration-logo.png"
+            height="50px"
+            alt="Integration for Courses logo"
+          />
 
           <div>
             <span>Integration</span>
             <span>for Courses</span>
           </div>
         </nuxt-link>
+        <v-spacer />
 
-        <nav>
+        <nav :class="{ mobile }">
+          <v-btn icon @click="mobile = !mobile" class="navBtn">open</v-btn>
           <nuxt-link to="/">Home</nuxt-link>
           <nuxt-link to="#courses">Courses</nuxt-link>
           <nuxt-link to="#lecturers">Lecturers</nuxt-link>
@@ -26,7 +32,7 @@
 export default {
   name: 'NavBar',
   props: ['top'],
-  data: () => ({ hid: true }),
+  data: () => ({ hid: true, mobile: true }),
   mounted() {
     onscroll = () => (scrollY > 20 ? (this.hid = false) : (this.hid = true))
   },
@@ -48,10 +54,13 @@ header.header {
   background: white;
   transition: 0.4s;
 
-  .logo {
+  @media (max-width: 570px) {
+    align-items: flex-start;
+  }
+
+  .Integration-logo {
     padding: 0 10px;
     display: flex;
-    align-items: center;
     align-items: flex-end;
 
     > div {
@@ -79,11 +88,24 @@ header.header {
     justify-content: space-between;
     align-items: flex-end;
 
+    @media (max-width: 570px) {
+      align-items: flex-start;
+    }
+
+    .navBtn {
+      display: none;
+
+      @media (max-width: 570px) {
+        display: block;
+      }
+    }
+
     nav {
       display: flex;
       gap: 2vw;
+      direction: rtl;
 
-      @media (max-width: 569px) {
+      @media (max-width: 570px) {
         flex-direction: column;
         position: relative;
       }
@@ -94,6 +116,12 @@ header.header {
         &.nuxt-link-exact-active {
           color: #2c1e6d;
           font-weight: bold;
+        }
+      }
+
+      &.mobile a {
+        @media (max-width: 570px) {
+          display: none;
         }
       }
     }

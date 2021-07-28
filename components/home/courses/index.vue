@@ -1,7 +1,7 @@
 <template>
   <section id="courses">
     <v-container>
-      <h2>courses</h2>
+      <h1>courses</h1>
       <!-- <div v-if="courses.length"> -->
       <div v-if="courses.length">
         <div class="course" v-for="(course, n) in courses" :key="n">
@@ -13,7 +13,7 @@
           <!-- course_details -->
           <div class="course_details">
             <div class="basics">
-              <h2>{{ course.name }}</h2>
+              <h1>{{ course.name }}</h1>
               <h3>{{ course.lecturer }}</h3>
               <p>{{ course.descriptaion }}</p>
             </div>
@@ -76,7 +76,7 @@
 
           <!-- course_image -->
           <div class="course_image">
-            <v-img :src="course.img || '/logo.png'" width="100px" />
+            <v-img :src="course.img || '/Integration-logo.png'" width="100px" />
           </div>
         </div>
       </div>
@@ -134,9 +134,13 @@ export default {
   padding: 10px;
   overflow: hidden;
 
-  &:nth-last-of-type(even) {
-    background: #ff476930;
-  }
+  // &:nth-of-type(even) {
+  //   background: #ff476930;
+  // }
+
+  // &:nth-of-type(odd) {
+  //   background: #2c1e6d30;
+  // }
 
   .course_id {
     width: 15vw;
@@ -155,7 +159,7 @@ export default {
     .basics {
       height: 100%;
 
-      h2,
+      h1,
       h3,
       p {
         margin: 0;

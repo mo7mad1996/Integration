@@ -10,7 +10,7 @@ export default {
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Integration',
+    titleTemplate: 'Integration > %s',
     title: 'Integration',
     htmlAttrs: {
       lang: 'en',
@@ -21,7 +21,25 @@ export default {
       {
         name: 'description',
         content:
-          'Integration Integration-eng Integration for courses Integration site Integration Academy Integration Integration-eng Integration for courses Integration Academy  6th Of October City integration 01552171038 01151248022 instagram: integration_courses info@integration-eng.co facebook: Integration Academy the best courses for civil engineers the best place to get your courses in Egypt the best courses for engineers',
+          'INTEGRATION FOR COURSES Home Courses Lecturers Suggest an edit Integration for courses Integration is the best way to get you courses with the best lecturers in',
+      },
+      {
+        name: 'keywords',
+        content: `Integration,
+          Integration-eng, Integration for courses, courses, courses,
+          Integration site, Integration Academy, Integration,
+          Academy 6th Of October City, get courses, best course, the best way to get excllent,
+          6th Of October City, integration_courses, lecturer,
+          info@integration-eng.co, integration.com, lecturers,
+          integration-eng.co, integration-eng.com, success,
+          integration, 01552171038 ,01151248022, instagram: integration_courses info@integration-eng.co,
+          facebook: Integration Academy, the best courses for civil engineers,
+          civil engineers, 
+          the best place to get your courses in Egypt,
+          the best courses for engineers
+          كورس, أنتجراشن,  محاضر , مدرسين , مدرس , كورسات , اكتوبر,  6 اكتوبر, افضل كورس, 
+          هندسه مدني,  اشهر مكان,  افضل مكان,  كورسات هندسه مدني,  مهندس مدني
+          `,
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

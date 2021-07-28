@@ -15,6 +15,7 @@ export default {
     return {
       controls: null,
       camera: null,
+      n: 0,
       loader: null,
     }
   },
@@ -27,26 +28,35 @@ export default {
       this.renderer.setSize(container.clientWidth, container.clientHeight)
       this.scene = new THREE.Scene()
       this.camera = new THREE.PerspectiveCamera(
-        35,
+        60,
         container.clientWidth / container.clientHeight,
         1,
         500
       )
       container.appendChild(this.renderer.domElement)
+
       // the light
-      let hlight = new THREE.AmbientLight(0x090909, 20)
+      let hlight = new THREE.AmbientLight(0x22222, 2)
+      hlight.position.set(0, 200, 0)
       this.scene.add(hlight)
-      let light = new THREE.PointLight(0x888888, 10)
-      light.position.set(0, 500, -500)
+      let dlight = new THREE.AmbientLight(0x13080f, 50)
+      dlight.position.set(0, -200, 0)
+      this.scene.add(dlight)
+
+      let light = new THREE.PointLight(0x333333, 10)
+      light.position.set(-200, 200, 200)
       this.scene.add(light)
-      let light2 = new THREE.PointLight(0x888888, 10)
-      light2.position.set(500, 500, 500)
+      let light2 = new THREE.PointLight(0x333333, 10)
+      light2.position.set(200, 200, -200)
       this.scene.add(light2)
-      let light3 = new THREE.PointLight(0x888888, 10)
-      light3.position.set(-500, -500, 500)
+      let light3 = new THREE.PointLight(0x333333, 10)
+      light3.position.set(200, 200, 200)
       this.scene.add(light3)
+      let light4 = new THREE.PointLight(0x333333, 10)
+      light4.position.set(-200, 200, -200)
+      this.scene.add(light4)
       // the camera position
-      this.camera.position.y = 80
+      this.camera.position.y = -10
       this.camera.position.x = 50
       this.controls = new OrbitControls(this.camera, this.renderer.domElement)
       this.controls.enableZoom = false
@@ -71,6 +81,17 @@ export default {
 
   mounted() {
     this.init()
+  },
+
+  head() {
+    return {
+      meta: [
+        {
+          name: 'description',
+          content: document.body.innerText.substring(0, 160),
+        },
+      ],
+    }
   },
 }
 </script>

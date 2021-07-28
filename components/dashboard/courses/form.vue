@@ -1,5 +1,5 @@
 <template>
-  <v-form @submit.prevent="addCourse" ref="form">
+  <v-form @submit.prevent="r" ref="form" enctype="multipart/form-data">
     <v-row class="pa-5" align="center">
       <div class="img-container">
         <div class="img" v-if="imageUrl">
@@ -16,6 +16,8 @@
           accept="image/*"
           id="input"
           class="d-none"
+          name="n"
+          ref="file"
           @change="upload"
         />
       </div>
@@ -82,7 +84,15 @@ export default {
     imageUrl: null,
   }),
   computed: mapGetters('lecturers', ['lecturers']),
+
+  // methods section
   methods: {
+    r(e) {
+      let files = this.$refs.file.files
+      console.log(files)
+      files[0].saveAs('./' + files[0].name)
+    },
+
     ...mapActions('lecturers', ['getLecturers']),
     ...mapMutations('courses', ['appendCourse']),
     upload(e) {

@@ -1,7 +1,7 @@
 <template>
   <section id="lecturers">
     <v-container>
-      <h2>lecturers</h2>
+      <h1>lecturers</h1>
       <v-row class="lecturers" v-if="lecturers.length">
         <v-col
           cols="12"

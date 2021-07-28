@@ -27,7 +27,6 @@ export default {
 
 <style scoped>
 .intro {
-  height: 100vh;
   background-image: url('https://wallpaperaccess.com/full/1220750.jpg');
   background-color: #07ccb0;
   background-blend-mode: multiply;

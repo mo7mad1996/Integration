@@ -1,7 +1,7 @@
 <template>
   <section id="suggest">
     <v-container>
-      <h2>Suggest an edit</h2>
+      <h1>Suggest an edit</h1>
 
       <v-form ref="form" @submit.prevent="submit">
         <v-text-field outlined label="Name" v-model="form.name"></v-text-field>
