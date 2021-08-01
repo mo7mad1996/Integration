@@ -1,5 +1,5 @@
 <template>
-  <v-form @submit.prevent="r" ref="form" enctype="multipart/form-data">
+  <v-form @submit.prevent="addCourse" ref="form" enctype="multipart/form-data">
     <v-row class="pa-5" align="center">
       <div class="img-container">
         <div class="img" v-if="imageUrl">
@@ -87,10 +87,14 @@ export default {
 
   // methods section
   methods: {
-    r(e) {
+    r() {
       let files = this.$refs.file.files
       console.log(files)
-      files[0].saveAs('./' + files[0].name)
+
+      let fd = new FormData()
+      fd.append('image', files[0], files[0].name)
+
+      console.log(fd)
     },
 
     ...mapActions('lecturers', ['getLecturers']),

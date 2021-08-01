@@ -24,7 +24,7 @@ export default {
     init: function () {
       let container = this.$refs.canvas
       this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-      this.renderer.setClearColor(0x0080ff, 0)
+      this.renderer.setClearColor(0x000000, 0)
       this.renderer.setSize(container.clientWidth, container.clientHeight)
       this.scene = new THREE.Scene()
       this.camera = new THREE.PerspectiveCamera(
@@ -58,13 +58,16 @@ export default {
       // the camera position
       this.camera.position.y = -10
       this.camera.position.x = 50
+
+      // the controls
       this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+      console.log(this.controls)
       this.controls.enableZoom = false
       this.controls.enablePan = false
       this.controls.update()
+
       // the helmet
       this.loader = new GLTFLoader()
-      // console.log(this.loader)
       this.loader.load('/land/scene.gltf', (gltf) => {
         this.scene.add(gltf.scene)
         this.renderer.render(this.scene, this.camera)

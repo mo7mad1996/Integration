@@ -4,13 +4,20 @@
       <h1>Suggest an edit</h1>
 
       <v-form ref="form" @submit.prevent="submit">
-        <v-text-field outlined label="Name" v-model="form.name"></v-text-field>
+        <v-text-field
+          outlined
+          label="Name"
+          filled
+          v-model="form.name"
+        ></v-text-field>
         <v-text-field
           outlined
           label="Phone"
+          filled
           v-model="form.phone"
         ></v-text-field>
         <v-textarea
+          filled
           outlined
           label="Suggest an edit"
           v-model="form.text"
@@ -20,6 +27,7 @@
           block
           color="#07ccb0"
           outlined
+          filled
           plain
           :loading="loading"
           :disabled="loading || !(form.name && form.phone && form.text)"

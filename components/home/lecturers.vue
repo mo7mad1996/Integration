@@ -83,6 +83,7 @@ section {
       overflow: hidden;
       margin: auto;
       transition: 0.3s;
+      background: white;
 
       &:hover {
         box-shadow: 0px 0px 0px rgb(199, 193, 193);
