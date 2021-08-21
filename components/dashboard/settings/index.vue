@@ -98,7 +98,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.loading = true
         this.$axios
-          .$patch('users/' + this.user.id, {
+          .$patch('admins/' + this.user.id, {
             username: this.username,
             password: this.new_password,
           })

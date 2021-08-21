@@ -11,8 +11,8 @@
 <script>
 // components
 import Intro from '~/components/home/intro/index'
-import Lecturers from '~/components/home/lecturers'
 import Courses from '~/components/home/courses/index'
+import Lecturers from '~/components/home/lecturers'
 import SuggestForm from '~/components/home/suggestForm/index'
 import FooterComponent from '~/components/home/footer/index'
 
@@ -27,10 +27,8 @@ export default {
     //     })
 
     let courses
-
     return $axios.$get('courses').then((c) => {
       courses = c
-
       return $axios.$get('lecturers').then((lecturers) => {
         return { lecturers, courses }
       })
@@ -39,6 +37,6 @@ export default {
   head: () => ({
     title: 'Home',
   }),
-  data: () => ({ courses: { length: false }, lecturers: { length: false } }),
+  data: () => ({ courses: { length: -1 }, lecturers: { length: -1 } }),
 }
 </script>

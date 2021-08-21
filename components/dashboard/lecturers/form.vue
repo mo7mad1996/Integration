@@ -16,6 +16,7 @@
             type="file"
             accept="image/*"
             id="input"
+            ref="file"
             class="d-none"
             @change="upload"
           />
@@ -67,6 +68,7 @@ let person = {
   job: '',
   describe: '',
   img: null,
+  file: {},
   contact: {
     facebook: '',
     twitter: '',
@@ -86,7 +88,15 @@ export default {
   },
   methods: {
     ...mapActions('lecturers', ['getLecturers']),
+    addImg(e) {
+      let files = this.$refs.file.files,
+        blob = new Blob(files, files[0]),
+        url = window.URL.createObjectURL(blob)
+      this.person.img = url
+      this.person.file = files[0]
+    },
     submit() {
+      this.addImg()
       this.loading = true
       this.$axios
         .$post('lecturers', this.person)

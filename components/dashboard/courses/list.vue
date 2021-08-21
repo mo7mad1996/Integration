@@ -27,7 +27,7 @@
               >
             </v-card-actions>
           </v-col>
-          <v-col cols="4" md="2">
+          <v-col cols="6" class="pa-5" md="3">
             <v-img :src="course.img || '/Integration-logo.png'"></v-img>
           </v-col>
         </v-row>

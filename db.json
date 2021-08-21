@@ -1,13 +1,52 @@
 {
-  "users": [
+  "admins": [
     {
       "id": 1,
       "username": "admin",
       "password": "admin"
     }
   ],
-  "courses": [],
-  "lecturers": [],
-  "ideas": [],
-  "tickets": []
+  "courses": [
+    {
+      "img": "blob:http://localhost:3030/8d830f34-5ef5-476d-a03d-accad803edfb",
+      "name": "Course Name",
+      "lecturer": "name",
+      "price": "2",
+      "descount": "9",
+      "descriptaion": "asdasd",
+      "id": 1
+    }
+  ],
+  "lecturers": [
+    {
+      "name": "name",
+      "job": "j",
+      "describe": "asd",
+      "img": "blob:http://localhost:3030/8d715ce7-6ac7-4ddb-82a1-a65414b3d023",
+      "contact": {
+        "facebook": "asd",
+        "twitter": "asd",
+        "linkedin": "asd",
+        "earth": "ads"
+      },
+      "id": 1
+    }
+  ],
+  "ideas": [
+    {
+      "name": "asd",
+      "phone": "asd",
+      "text": "asd",
+      "id": 1
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "course_id": 1,
+      "name": "asd",
+      "email": "asd@ASD.COM",
+      "phone": "SDF"
+    }
+  ]
 }

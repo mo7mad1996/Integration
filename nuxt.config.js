@@ -10,7 +10,7 @@ export default {
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'Integration > %s',
+    titleTemplate: 'Integration | %s',
     title: 'Integration',
     htmlAttrs: {
       lang: 'en',
@@ -69,8 +69,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseUrl: dev
-      ? 'http://localhost:3000'
-      : 'https://my-json-server.typicode.com/mo7mad1996/integration',
+      ? 'http://localhost:3000/'
+      : 'https://users-c25e.restdb.io/rest/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -87,14 +87,12 @@ export default {
 
   // methods section
   methods: {
-    r() {
-      let files = this.$refs.file.files
-      console.log(files)
+    addImg() {
+      let files = this.$refs.file.files,
+        blob = new Blob(files, files[0])
 
-      let fd = new FormData()
-      fd.append('image', files[0], files[0].name)
-
-      console.log(fd)
+      let url = window.URL.createObjectURL(blob)
+      this.course.img = url
     },
 
     ...mapActions('lecturers', ['getLecturers']),
@@ -115,6 +113,7 @@ export default {
     },
 
     addCourse() {
+      this.addImg()
       this.loading = true
       this.$axios
         .$post('courses', this.course)

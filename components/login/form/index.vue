@@ -66,7 +66,7 @@ export default {
         this.loading = true
 
         this.$axios
-          .$get('users?username=' + this.form.username)
+          .$get('admins?username=' + this.form.username)
           .then((res) => {
             if (res.length) {
               // get the frist user

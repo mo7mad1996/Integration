@@ -1,73 +1,12 @@
 {
-  "users": [
+  "admins": [
     {
       "id": 1,
       "username": "admin",
       "password": "admin"
     }
   ],
-  "courses": [
-    {
-      "img": null,
-      "name": null,
-      "lecturer": "name",
-      "price": null,
-      "descount": null,
-      "descriptaion": null,
-      "id": 3
-    },
-    {
-      "img": null,
-      "name": "kansldnln",
-      "lecturer": "name",
-      "price": "120",
-      "descount": "1",
-      "descriptaion": "",
-      "id": 4
-    },
-    {
-      "img": null,
-      "name": "4994",
-      "lecturer": "name",
-      "price": "100",
-      "descount": null,
-      "descriptaion": null,
-      "id": 5
-    },
-    {
-      "img": null,
-      "name": "ddd",
-      "lecturer": null,
-      "price": null,
-      "descount": null,
-      "descriptaion": null,
-      "id": 6
-    },
-    {
-      "img": null,
-      "name": null,
-      "lecturer": "name",
-      "price": "90",
-      "descount": "90",
-      "descriptaion": null,
-      "id": 7
-    }
-  ],
-  "lecturers": [
-    {
-      "name": "name",
-      "job": "age",
-      "describe": "des",
-      "img": null,
-      "contact": {
-        "facebook": "",
-        "twitter": "",
-        "linkedin": "",
-        "earth": ""
-      },
-      "id": 1
-    }
-  ],
+  "lecturers": [],
   "ideas": [],
   "tickets": []
 }

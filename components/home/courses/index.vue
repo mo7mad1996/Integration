@@ -76,7 +76,7 @@
 
           <!-- course_image -->
           <div class="course_image">
-            <v-img :src="course.img || '/Integration-logo.png'" width="100px" />
+            <v-img :src="course.img || '/Integration-logo.png'" width="150px" />
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@
           disabled
           text
           loading
-          v-if="loadingCourses"
+          v-if="+courses.length < 0"
           class="loading"
         ></v-btn>
         <h2 v-else>No Courses added</h2>
@@ -101,7 +101,6 @@ export default {
   props: ['courses'],
   data: () => ({
     loading: false,
-    loadingCourses: true,
     info: {
       name: '',
       email: '',
@@ -109,11 +108,6 @@ export default {
     },
   }),
 
-  watch: {
-    courses() {
-      this.loadingCourses = false
-    },
-  },
   name: 'Courses',
   methods: {
     book(id, dialog) {

@@ -12,7 +12,10 @@
         >
           <div class="card">
             <div class="img-container">
-              <img :src="lecturer.img || '/lecturers/avatar.svg'" />
+              <img
+                :src="lecturer.img || '/lecturers/avatar.svg'"
+                :alt="lecturer.name"
+              />
             </div>
 
             <div class="info">
@@ -30,11 +33,7 @@
               <small>{{ lecturer.job }}</small>
               <div class="contact"></div>
               <p>
-                {{
-                  lecturer.describe.length > 78
-                    ? lecturer.describe.slice(0, 75) + '...'
-                    : lecturer.describe
-                }}
+                {{ lecturer.describe }}
               </p>
             </div>
           </div>
@@ -42,7 +41,13 @@
       </v-row>
 
       <div v-else class="noData">
-        <v-btn disabled text loading v-if="loading" class="loading"></v-btn>
+        <v-btn
+          disabled
+          text
+          loading
+          v-if="+lecturers.length < 0"
+          class="loading"
+        ></v-btn>
         <h2 v-else>No Lecturers added</h2>
       </div>
     </v-container>
@@ -55,12 +60,6 @@
 export default {
   name: 'Lecturers',
   props: ['lecturers'],
-  data: () => ({ loading: true }),
-  watch: {
-    lecturers() {
-      this.loading = false
-    },
-  },
 }
 </script>
 
@@ -94,8 +93,8 @@ section {
       .img-container {
         overflow: hidden;
         height: 200px;
-        transform: translateX(-25%);
-        width: 380px;
+        width: 170%;
+        transform: translateX(-85px);
         position: relative;
         background: #989898;
 
@@ -113,10 +112,10 @@ section {
         }
 
         img {
-          width: 50%;
+          display: block;
           width: 240px;
-          height: 200px;
-          margin: 0 100px;
+          margin: auto;
+          height: 100%;
           object-fit: cover;
         }
 
