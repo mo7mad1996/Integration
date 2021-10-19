@@ -70,7 +70,7 @@ export default {
   axios: {
     baseUrl: dev
       ? 'http://localhost:3000/'
-      : 'https://users-c25e.restdb.io/rest/',
+      : 'https://my-json-server.typicode.com/mo7mad1996/integration',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -37,6 +37,18 @@ export default {
 
   .left_Group {
     max-width: 50%;
+
+    h1 {
+      font-size: 10vw;
+      line-height: 0.4em;
+    }
+    h2 {
+      font-weight: normal;
+      font-size: 7vw;
+    }
+    p {
+      font-size: max(2vw, 14px);
+    }
   }
   .right_photo {
     flex: 1;

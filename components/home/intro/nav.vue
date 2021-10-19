@@ -17,7 +17,9 @@
         <v-spacer />
 
         <nav :class="{ mobile }">
-          <v-btn icon @click="mobile = !mobile" class="navBtn">open</v-btn>
+          <v-btn icon @click="mobile = !mobile" class="navBtn" :dark="!!hid">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
           <nuxt-link to="/">Home</nuxt-link>
           <nuxt-link to="#courses">Courses</nuxt-link>
           <nuxt-link to="#lecturers">Lecturers</nuxt-link>
