@@ -18,6 +18,7 @@ import FooterComponent from '~/components/home/footer/index'
 
 export default {
   components: { Intro, Lecturers, Courses, SuggestForm, FooterComponent },
+  // mounted() {
   asyncData({ $axios }) {
     /* $axios.$all is not working */
     //  return $axios
@@ -37,6 +38,6 @@ export default {
   head: () => ({
     title: 'Home',
   }),
-  data: () => ({ courses: { length: -1 }, lecturers: { length: -1 } }),
+  data: () => ({ courses: [], lecturers: [] }),
 }
 </script>

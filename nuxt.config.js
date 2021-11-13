@@ -1,12 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
-
-let dev = process.env.NODE_ENV !== 'production'
+console.log('process.env.BASE_URL', process.env.BASE_URL)
 
 export default {
-  server: {
-    port: 3030,
-  },
-
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -68,9 +63,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: dev
-      ? 'http://localhost:3000/'
-      : 'https://my-json-server.typicode.com/mo7mad1996/integration',
+    baseUrl: (process.env.BASE_URL || 'http://localhost:3000') + '/api',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -94,4 +87,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // api database
+  serverMiddleware: [
+    {
+      path: '/api',
+      handler: '~/api/index.js',
+    },
+  ],
 }
