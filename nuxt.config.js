@@ -1,5 +1,4 @@
 import colors from 'vuetify/es5/util/colors'
-console.log('process.env.BASE_URL', process.env.BASE_URL)
 
 export default {
   target: 'static',
@@ -63,7 +62,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: (process.env.BASE_URL || 'http://localhost:3000') + '/api',
+    baseUrl: (process.env.BASE_URL || 'http://localhost:3000') + '/api/',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -89,10 +88,7 @@ export default {
   build: {},
 
   // api database
-  serverMiddleware: [
-    {
-      path: '/api',
-      handler: '~/api/index.js',
-    },
-  ],
+  router: {
+    // middleware: 'api',
+  },
 }
