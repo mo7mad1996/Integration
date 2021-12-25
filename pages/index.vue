@@ -16,22 +16,26 @@ import Lecturers from '~/components/home/lecturers'
 import SuggestForm from '~/components/home/suggestForm/index'
 import FooterComponent from '~/components/home/footer/index'
 
-import XMLHttpRequest from 'xhr2'
+// import XMLHttpRequest from 'xhr2'
 
 export default {
   components: { Intro, Lecturers, Courses, SuggestForm, FooterComponent },
-  mounted() {
-    console.clear()
-    let XHR = new XMLHttpRequest()
-    XHR.open('GET', '/api', true)
-    XHR.onreadystatechange = () => {
-      if (XHR.readyState == 4 && XHR.statusText == 'OK') {
-        let { lecturers, courses } = JSON.parse(XHR.response)
-        this.lecturers = lecturers
-        this.courses = courses
-      }
+  async asyncData({ $axios }) {
+    let courses = [],
+      lecturers = []
+
+    await $axios.get('/courses').then(({ data }) => {
+      courses = data
+    })
+
+    await $axios.get('/lecturers').then(({ data }) => {
+      lecturers = data
+    })
+
+    return {
+      courses,
+      lecturers,
     }
-    XHR.send()
   },
   head: () => ({
     title: 'Home',

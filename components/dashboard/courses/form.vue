@@ -97,6 +97,7 @@ export default {
 
     ...mapActions('lecturers', ['getLecturers']),
     ...mapMutations('courses', ['appendCourse']),
+
     upload(e) {
       let files = e.target.files,
         file = files[0].name,

@@ -1,6 +1,6 @@
 <template>
   <v-list>
-    <v-list-item class="mt-5" v-for="(course, n) in courses" :key="course.id">
+    <v-list-item class="mt-5" v-for="(course, n) in courses" :key="course._id">
       <v-card width="100%">
         <v-row align="center">
           <v-col>
@@ -22,13 +22,13 @@
             </v-card-text>
             <v-divider class="mx-3" />
             <v-card-actions>
-              <v-btn @click="remove(course.id, n)" text color="red lighten-2"
+              <v-btn @click="remove(course._id, n)" text color="red lighten-2"
                 >delete</v-btn
               >
             </v-card-actions>
           </v-col>
           <v-col cols="6" class="pa-5" md="3">
-            <v-img :src="course.img || '/Integration-logo.png'"></v-img>
+            <v-img :src="course.img"></v-img>
           </v-col>
         </v-row>
       </v-card>

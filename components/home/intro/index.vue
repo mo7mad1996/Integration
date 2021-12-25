@@ -30,5 +30,6 @@ export default {
   background-image: url('https://wallpaperaccess.com/full/1220750.jpg');
   background-color: #07ccb0;
   background-blend-mode: multiply;
+  background-size: cover;
 }
 </style>

@@ -102,7 +102,6 @@ export default {
         .$post('lecturers', this.person)
         .then(() => {
           this.getLecturers()
-          console.log('added')
         })
         .catch((err) => console.log(err))
         .finally(() => {

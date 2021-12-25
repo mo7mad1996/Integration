@@ -14,12 +14,14 @@
 
             <v-list>
               <v-list-item v-for="(a, b) in teacher.contact" :key="b">
-                <v-list-item-icon>
-                  <v-icon> mdi-{{ b }}</v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  {{ teacher.contact[b] }}
-                </v-list-item-content>
+                <div v-if="b != '_id'">
+                  <v-list-item-icon>
+                    <v-icon> mdi-{{ b }}</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    {{ teacher.contact[b] }}
+                  </v-list-item-content>
+                </div>
               </v-list-item>
             </v-list>
 
@@ -29,7 +31,7 @@
               <v-btn
                 color="red lighten-2"
                 text
-                @click.stop="clear(teacher.id, n)"
+                @click.stop="clear(teacher._id, n)"
                 :loading="teacher.loading"
               >
                 delete
@@ -37,10 +39,7 @@
             </v-card-actions>
           </v-col>
           <v-col cols="6" md="4">
-            <v-img
-              height="150"
-              :src="teacher.img || '/lecturers/avatar.svg'"
-            ></v-img>
+            <v-img height="150" :src="teacher.img"></v-img>
           </v-col>
         </v-row>
       </v-card>

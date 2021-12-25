@@ -40,7 +40,7 @@
                 </template>
                 <template v-slot:default="dialog">
                   <v-card>
-                    <v-form @submit.prevent="book(course.id, dialog)">
+                    <v-form @submit.prevent="book(course._id, dialog)">
                       <v-toolbar color="primary" dark>
                         <div>
                           Get the ticket for
@@ -113,7 +113,7 @@ export default {
     book(id, dialog) {
       this.loading = true
       this.$axios
-        .$post('tickets', Object.assign({ id: null, course_id: id }, this.info))
+        .$post('tickets', Object.assign({ course_id: id }, this.info))
         .then(() => (dialog.value = false))
         .finally(() => (this.loading = false))
     },

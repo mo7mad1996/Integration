@@ -16,7 +16,7 @@
 
         <v-col cols="1">
           <v-card-actions dir="rtl">
-            <v-btn icon @click.stop="clear(idea.id, n)">
+            <v-btn icon @click.stop="clear(idea._id, n)">
               <v-icon>mdi-delete</v-icon>
             </v-btn>
           </v-card-actions>

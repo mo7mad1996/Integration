@@ -1,6 +1,10 @@
-const data = { courses: [] },
+const data = {
+    courses: []
+  },
   state = () => data,
-  getters = { courses: (state) => state.courses },
+  getters = {
+    courses: (state) => state.courses
+  },
   mutations = {
     // Courses
     appendCourse(state, data) {
@@ -15,13 +19,25 @@ const data = { courses: [] },
   },
   actions = {
     // Courses
-    getCourses({ commit }) {
-      this.$axios.$get('courses').then((res) => commit('setCourses', res))
+    async getCourses({
+      commit
+    }) {
+      await this.$axios.$get('courses').then((res) => commit('setCourses', res))
     },
-    deleteCourse({ commit }, { id, n }) {
+    deleteCourse({
+      commit
+    }, {
+      id,
+      n
+    }) {
       this.$axios.$delete('courses/' + id).then(() => commit('deleteCourse', n))
     },
   },
-  store = { state, getters, mutations, actions }
+  store = {
+    state,
+    getters,
+    mutations,
+    actions
+  }
 
 export default store
