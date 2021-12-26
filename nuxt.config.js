@@ -1,11 +1,20 @@
-const colors = require('vuetify/es5/util/colors').default
+import fs from 'fs'
+
+if (fs.existsSync('./node_modules/three/examples/jsm/controls/OrbitControls.js')) {
+  fs.renameSync('./node_modules/three/examples/jsm/controls/OrbitControls.js', './node_modules/three/examples/jsm/controls/OrbitControls.jsm')
+  fs.renameSync('./node_modules/three/examples/jsm/loaders/GLTFLoader.js', './node_modules/three/examples/jsm/loaders/GLTFLoader.jsm')
+}
+
+
+import colors from 'vuetify/es5/util/colors'
+
+const port = 3030
 
 module.exports = {
   target: 'static',
   telemetry: false,
   server: {
-    host: '0.0.0.0',
-    port: 3000
+    port
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -74,7 +83,8 @@ module.exports = {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: (process.env.BASE_URL || 'http://localhost:3000') + '/api/',
+    baseUrl: process.env.NODE_ENV !== "development" ?
+      'https://damp-ridge-60110.herokuapp.com/api' : 'http://localhost:3000/api',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
