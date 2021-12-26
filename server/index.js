@@ -1,3 +1,10 @@
+const fs = require('fs')
+
+if (fs.existsSync('./node_modules/three/examples/jsm/controls/OrbitControls.js')) {
+  fs.renameSync('./node_modules/three/examples/jsm/controls/OrbitControls.js', './node_modules/three/examples/jsm/controls/OrbitControls.jsm')
+  fs.renameSync('./node_modules/three/examples/jsm/loaders/GLTFLoader.js', './node_modules/three/examples/jsm/loaders/GLTFLoader.jsm')
+}
+
 const express = require('express')
 const consola = require('consola')
 const {

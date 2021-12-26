@@ -11,7 +11,7 @@
       </div>
       <div class="right_photo">
         <client-only>
-          <!-- <MyCanvas /> -->
+          <MyCanvas />
         </client-only>
       </div>
     </div>
