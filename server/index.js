@@ -8,13 +8,14 @@ const {
 const app = express()
 
 const config = require('../nuxt.config')
-config.dev = process.dev !== 'production'
-
+config.dev = process.env.NODE_ENV !== 'production'
 
 
 // database
 const mongoose = require('mongoose'),
-  db_uri = config.dev ? 'mongodb://localhost/Integration' : ''
+  db_uri = config.dev ?
+  'mongodb://localhost/Integration' :
+  'mongodb+srv://mo7mad1996:mo7mad1996@cluster0.8fxom.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 
 mongoose.Promise = global.Promise
