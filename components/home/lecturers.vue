@@ -60,6 +60,23 @@
 export default {
   name: 'Lecturers',
   props: ['lecturers'],
+  data: () => {
+    return {
+      lecturers: [],
+    }
+  },
+  mounted() {
+    this.$axios
+      .$get('lecturers')
+      .then((lecturers) => {
+        this.lecturers = lecturers
+      })
+      .catch((err) => {
+        if (err) {
+          throw err
+        }
+      })
+  },
 }
 </script>
 

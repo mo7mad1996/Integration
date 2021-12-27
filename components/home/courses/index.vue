@@ -101,13 +101,25 @@ export default {
   props: ['courses'],
   data: () => ({
     loading: false,
+    courses: [],
     info: {
       name: '',
       email: '',
       phone: '',
     },
   }),
-
+  mounted() {
+    this.$axios
+      .$get('courses')
+      .then((courses) => {
+        this.courses = courses
+      })
+      .catch((err) => {
+        if (err) {
+          throw err
+        }
+      })
+  },
   name: 'Courses',
   methods: {
     book(id, dialog) {

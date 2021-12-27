@@ -94,4 +94,4 @@ sw.*
 # online database
 db.json
 
-node_modules/*
+node_modules

@@ -84,15 +84,12 @@ export default {
   data: () => ({ tickets: [] }),
   beforeMount() {
     this.$axios.$get('tickets').then((res) => {
-      console.clear()
       res.forEach((ticket, n) => {
         console.log('http://localhost:3000/api/courses/' + ticket.course_id)
         this.$axios.$get('courses/' + ticket.course_id).then((course) => {
           if (!course) {
             this.$axios.$delete('tickets/' + ticket._id)
-            console.log(res)
             res.splice(n, 1)
-            console.log(res)
           }
 
           this.tickets = res.map(
