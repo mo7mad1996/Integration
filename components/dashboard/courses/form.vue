@@ -104,25 +104,6 @@ export default {
         file = files[0].name,
         fileReader = new FileReader()
       fileReader.addEventListener('load', () => {
-        var xhr = new XMLHttpRequest(),
-          formdata = new FormData()
-
-        if (Array.from(this.$refs.file.files).length) {
-          formdata.append(
-            'file',
-            this.$refs.file.files[0],
-            this.$refs.file.files[0].filename
-          )
-        }
-
-        xhr.open(
-          'post',
-          process.env.NODE_ENV !== 'development'
-            ? 'https://damp-ridge-60110.herokuapp.com/api/img'
-            : 'http://localhost:3000/api/img'
-        )
-        xhr.send(formdata)
-
         this.imageUrl = fileReader.result
       })
       fileReader.readAsDataURL(files[0])
@@ -137,16 +118,45 @@ export default {
       this.addImg()
       this.loading = true
 
-      this.$axios
-        .$post('courses', this.course)
-        .then((res) => {
-          this.appendCourse(res)
-          this.$refs.form.reset()
-          this.imageUrl = ''
-        })
-        .finally(() => {
-          this.loading = false
-        })
+      var formdata = new FormData()
+
+      if (Array.from(this.$refs.file.files).length) {
+        formdata.append(
+          'file',
+          this.$refs.file.files[0],
+          this.$refs.file.files[0].filename
+        )
+
+        this.$axios
+          .$post('img', formdata, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then((img) => {
+            this.$axios
+              .$post('courses', Object.assign(this.course, img))
+              .then((res) => {
+                this.appendCourse(res)
+                this.$refs.form.reset()
+                this.imageUrl = ''
+              })
+              .finally(() => {
+                this.loading = false
+              })
+          })
+      } else {
+        this.$axios
+          .$post('courses', this.course)
+          .then((res) => {
+            this.appendCourse(res)
+            this.$refs.form.reset()
+            this.imageUrl = ''
+          })
+          .finally(() => {
+            this.loading = false
+          })
+      }
     },
   },
   beforeMount() {

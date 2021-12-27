@@ -39,7 +39,7 @@
             </v-card-actions>
           </v-col>
           <v-col cols="6" md="4">
-            <v-img height="150" :src="teacher.img"></v-img>
+            <v-img :src="teacher.img"></v-img>
           </v-col>
         </v-row>
       </v-card>

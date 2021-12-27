@@ -98,21 +98,8 @@ export default {
     submit() {
       this.addImg()
       this.loading = true
-      this.$axios
-        .$post('lecturers', this.person)
-        .then(() => {
-          this.getLecturers()
-          this.$refs.form.reset()
-          this.imageUrl = ''
-        })
-        .catch((err) => console.log(err))
-        .finally(() => {
-          this.loading = false
-        })
-    },
-    upload(e) {
-      var xhr = new XMLHttpRequest(),
-        formdata = new FormData()
+
+      var formdata = new FormData()
 
       if (Array.from(this.$refs.file.files).length) {
         formdata.append(
@@ -120,16 +107,41 @@ export default {
           this.$refs.file.files[0],
           this.$refs.file.files[0].filename
         )
+
+        this.$axios
+          .$post('img', formdata, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then((img) => {
+            this.$axios
+              .$post('lecturers', Object.assign(this.person, img))
+              .then(() => {
+                this.getLecturers()
+                this.$refs.form.reset()
+                this.imageUrl = ''
+              })
+              .catch((err) => console.log(err))
+              .finally(() => {
+                this.loading = false
+              })
+          })
+      } else {
+        this.$axios
+          .$post('lecturers', this.person)
+          .then(() => {
+            this.getLecturers()
+            this.$refs.form.reset()
+            this.imageUrl = ''
+          })
+          .catch((err) => console.log(err))
+          .finally(() => {
+            this.loading = false
+          })
       }
-
-      xhr.open(
-        'post',
-        process.env.NODE_ENV !== 'development'
-          ? 'https://damp-ridge-60110.herokuapp.com/api/img'
-          : 'http://localhost:3000/api/img'
-      )
-      xhr.send(formdata)
-
+    },
+    upload(e) {
       let files = e.target.files,
         file = files[0].name,
         fileReader = new FileReader()
