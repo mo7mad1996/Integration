@@ -101,7 +101,6 @@ export default {
   props: ['courses'],
   data: () => ({
     loading: false,
-    courses: [],
     info: {
       name: '',
       email: '',

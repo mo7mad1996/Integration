@@ -55,16 +55,9 @@
 </template>
 
 <script>
-// vuex
-
 export default {
   name: 'Lecturers',
   props: ['lecturers'],
-  data: () => {
-    return {
-      lecturers: [],
-    }
-  },
   mounted() {
     this.$axios
       .$get('lecturers')

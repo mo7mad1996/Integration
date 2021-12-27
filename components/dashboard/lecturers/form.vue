@@ -102,14 +102,34 @@ export default {
         .$post('lecturers', this.person)
         .then(() => {
           this.getLecturers()
+          this.$refs.form.reset()
+          this.imageUrl = ''
         })
         .catch((err) => console.log(err))
         .finally(() => {
           this.loading = false
-          this.$refs.form.reset()
         })
     },
     upload(e) {
+      var xhr = new XMLHttpRequest(),
+        formdata = new FormData()
+
+      if (Array.from(this.$refs.file.files).length) {
+        formdata.append(
+          'file',
+          this.$refs.file.files[0],
+          this.$refs.file.files[0].filename
+        )
+      }
+
+      xhr.open(
+        'post',
+        process.env.NODE_ENV !== 'development'
+          ? 'https://damp-ridge-60110.herokuapp.com/api/img'
+          : 'http://localhost:3000/api/img'
+      )
+      xhr.send(formdata)
+
       let files = e.target.files,
         file = files[0].name,
         fileReader = new FileReader()

@@ -43,6 +43,7 @@
           label="Price"
           v-model="course.price"
           append-icon="mdi-cash"
+          require
         ></v-text-field>
       </v-col>
       <v-col>
@@ -103,6 +104,25 @@ export default {
         file = files[0].name,
         fileReader = new FileReader()
       fileReader.addEventListener('load', () => {
+        var xhr = new XMLHttpRequest(),
+          formdata = new FormData()
+
+        if (Array.from(this.$refs.file.files).length) {
+          formdata.append(
+            'file',
+            this.$refs.file.files[0],
+            this.$refs.file.files[0].filename
+          )
+        }
+
+        xhr.open(
+          'post',
+          process.env.NODE_ENV !== 'development'
+            ? 'https://damp-ridge-60110.herokuapp.com/api/img'
+            : 'http://localhost:3000/api/img'
+        )
+        xhr.send(formdata)
+
         this.imageUrl = fileReader.result
       })
       fileReader.readAsDataURL(files[0])
@@ -116,11 +136,13 @@ export default {
     addCourse() {
       this.addImg()
       this.loading = true
+
       this.$axios
         .$post('courses', this.course)
         .then((res) => {
           this.appendCourse(res)
           this.$refs.form.reset()
+          this.imageUrl = ''
         })
         .finally(() => {
           this.loading = false
