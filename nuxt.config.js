@@ -83,9 +83,8 @@ module.exports = {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseUrl: 'http://localhost:3000/api'
-    // baseUrl: process.env.NODE_ENV !== "development" ?
-    //   'https://damp-ridge-60110.herokuapp.com/api' : 'http://localhost:3000/api',
+    baseUrl: process.env.NODE_ENV !== "development" ?
+      'https://damp-ridge-60110.herokuapp.com/api' : 'http://localhost:3000/api',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
