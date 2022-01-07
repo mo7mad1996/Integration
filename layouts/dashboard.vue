@@ -41,7 +41,7 @@
 
     <!-- content -->
     <v-main>
-      <v-container >
+      <v-container>
         <Nuxt />
       </v-container>
     </v-main>
@@ -81,11 +81,10 @@ export default {
     },
   },
   computed: mapGetters('Login', ['user']),
-  beforeMount() {
-    this.check() // if user in sessrion
-
-    if (!this.user) {
-      this.$router.push('/login')
+  middleware({ store, redirect }) {
+    // this.check() // if user in sessrion
+    if (!store.getters['Login/user']) {
+      redirect('/login')
     }
   },
 }

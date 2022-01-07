@@ -1,5 +1,5 @@
 const data = {
-    user: {},
+    user: null,
   },
   state = () => data,
   getters = {
@@ -11,9 +11,16 @@ const data = {
     },
   },
   actions = {
-    check({ commit }) {
+    check({
+      commit
+    }) {
       commit('setUser', JSON.parse(sessionStorage.getItem('user')))
     },
   },
-  store = { state, getters, mutations, actions }
+  store = {
+    state,
+    getters,
+    mutations,
+    actions
+  }
 export default store
